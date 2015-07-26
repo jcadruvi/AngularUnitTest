@@ -1,1 +1,1 @@
-# AngularUnitTest
+This is a sample project I am using for unit testing Angular in Mocha and Jasmine. 
