@@ -4,7 +4,8 @@
   "description": "This is a sample project I am using for unit testing Angular in Mocha and Jasmine.",
   "main": "gulpfile.js",
   "dependencies": {
-    "gulp": "~3.9.0"
+    "gulp": "~3.9.0",
+    "gulp-bower": "0.0.10"
   },
   "devDependencies": {},
   "scripts": {
