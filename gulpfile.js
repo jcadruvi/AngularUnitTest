@@ -18,3 +18,5 @@ gulp.task('sass', function () {
 gulp.task('sass:watch', function () {
   gulp.watch(sassFolder, ['sass']);
 });
+
+gulp.task('dev', ['bower', 'sass:watch']);
