@@ -3,6 +3,14 @@ var bower = require('gulp-bower');
 var sass = require('gulp-sass');
 
 var sassFolder = './content/**/*.scss';
+var templateCache = {
+  file: 'templates.js',
+  options: {
+    module: 'app',
+    root: 'app/',
+    standAlone: false
+  }
+};
 
 gulp.task('bower', function() {
   return bower()
