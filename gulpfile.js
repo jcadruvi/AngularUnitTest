@@ -1,16 +1,9 @@
 var gulp = require('gulp');
 var bower = require('gulp-bower');
+var ngTemplates = require('gulp-ng-template');
 var sass = require('gulp-sass');
 
 var sassFolder = './content/**/*.scss';
-var templateCache = {
-  file: 'templates.js',
-  options: {
-    module: 'app',
-    root: 'app/',
-    standAlone: false
-  }
-};
 
 gulp.task('bower', function() {
   return bower()
@@ -25,6 +18,18 @@ gulp.task('sass', function () {
 
 gulp.task('sass:watch', function () {
   gulp.watch(sassFolder, ['sass']);
+});
+
+gulp.task('templates', function () {
+  return gulp.src('templates/**/*.html')
+      .pipe(ngTemplates({
+        filename: 'templates.js',
+        moduleName: 'app',
+        path: function (path, base) {
+          return path.replace(base, '').replace('/templates', '');
+        }
+      }))
+      .pipe(gulp.dest('dist/scripts'));
 });
 
 gulp.task('dev', ['bower', 'sass:watch']);

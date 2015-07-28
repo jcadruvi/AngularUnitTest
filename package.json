@@ -6,7 +6,8 @@
   "dependencies": {
     "gulp": "~3.9.0",
     "gulp-bower": "0.0.10",
-    "gulp-sass": "^2.0.4"
+    "gulp-sass": "^2.0.4",
+    "gulp-ng-template": "^0.2.1"
   },
   "devDependencies": {},
   "scripts": {
