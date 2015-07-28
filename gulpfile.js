@@ -20,16 +20,21 @@ gulp.task('sass:watch', function () {
   gulp.watch(sassFolder, ['sass']);
 });
 
-gulp.task('templates', function () {
-  return gulp.src('templates/**/*.html')
-      .pipe(ngTemplates({
-        filename: 'templates.js',
-        moduleName: 'app',
-        path: function (path, base) {
-          return path.replace(base, '').replace('/templates', '');
-        }
-      }))
-      .pipe(gulp.dest('dist/scripts'));
+gulp.task('scripts', function () {
+  gulp.src('scripts/**/*.js')
+    .pipe(gulp.dest('./dist/scripts'));
 });
 
-gulp.task('dev', ['bower', 'sass:watch']);
+gulp.task('templates', function () {
+    gulp.src('templates/**/*.html')
+        .pipe(ngTemplates({
+            filename: 'templates.js',
+            moduleName: 'app',
+            path: function (path, base) {
+                return path.replace(base, '').replace('/templates', '');
+            }
+        }))
+        .pipe(gulp.dest('dist/scripts'));
+});
+
+gulp.task('dev', ['bower', 'sass', 'scripts', 'templates']);
