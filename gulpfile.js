@@ -1,5 +1,7 @@
 var gulp = require('gulp'),
     bower = require('gulp-bower'),
+    jshint = require('gulp-jshint'),
+    jsstylish = require('jshint-stylish'),
     ngTemplates = require('gulp-ng-template'),
     sass = require('gulp-sass'),
     livereload = require('gulp-livereload');
@@ -18,7 +20,10 @@ var doSassTask = function () {
 
 var doScriptsTask = function () {
     return gulp.src(config.jsFolder)
-                .pipe(gulp.dest('./dist/scripts'));
+               .pipe(jshint())
+               .pipe(jshint.reporter(jsstylish))
+               .pipe(jshint.reporter('fail'))
+               .pipe(gulp.dest('./dist/scripts'));
 };
 
 var doTemplatesTask = function () {
