@@ -1,7 +1,8 @@
-var gulp = require('gulp');
-var bower = require('gulp-bower');
-var ngTemplates = require('gulp-ng-template');
-var sass = require('gulp-sass');
+var gulp = require('gulp'),
+    bower = require('gulp-bower'),
+    ngTemplates = require('gulp-ng-template'),
+    sass = require('gulp-sass'),
+    livereload = require('gulp-livereload');
 
 var config = {
     jsFolder: 'scripts/**/*.js',
@@ -17,10 +18,12 @@ gulp.task('bower', function() {
 gulp.task('sass', function () {
   gulp.src(config.sassFolder)
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('./dist/content/css'));
+    .pipe(gulp.dest('./dist/content/css'))
+      .pipe(livereload());
 });
 
 gulp.task('watch', function () {
+  livereload.listen();
   gulp.watch(config.jsFolder, ['scripts']);
   gulp.watch(config.sassFolder, ['sass']);
   gulp.watch(config.templatesFolder, ['templates']);
