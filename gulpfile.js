@@ -4,7 +4,8 @@ var gulp = require('gulp'),
     jsstylish = require('jshint-stylish'),
     ngTemplates = require('gulp-ng-template'),
     sass = require('gulp-sass'),
-    livereload = require('gulp-livereload');
+    livereload = require('gulp-livereload'),
+    karma = require('karma').Server;
 
 var config = {
     jsFolder: 'scripts/**/*.js',
@@ -80,6 +81,23 @@ gulp.task('templates', function () {
 
 gulp.task('templates:reload', function () {
     doTemplatesTask().pipe(livereload());
+});
+
+gulp.task('test', function(done) {
+   karma.start({
+       configFile: __dirname + '/karma.config.js',
+       singleRun: true
+   }, function() {
+       done();
+   });
+});
+
+gulp.task('tdd', function(done) {
+   karma.start({
+       configFile: __dirname + '/karma.config.js'
+   }, function() {
+       done();
+   });
 });
 
 gulp.task('dev', ['bower', 'sass', 'scripts', 'templates', 'watch']);
