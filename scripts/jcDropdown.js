@@ -1,17 +1,25 @@
 (function() {
     'use strict';
 
-    angular.module('app').directive('jcDropdown', jcDropdown);
+    angular.module('app').directive('dropdown', dropdown);
 
-    function jcDropdown() {
-        return {
+    function dropdown() {
+        var self = {};
+
+        self.replace = true;
+        self.restrict = 'E';
+        self.template = '<p>This is the dropdown directive.</p>';
+
+        return self;
+        /*return {
             replace: true,
             restrict: 'E',
             scope: {
                 items: '=',
                 onSelect: '='
             },
-            templateUrl: 'app/dropdown.html'
-        };
+            template: ''
+            //templateUrl: 'dropdown.html'
+        };*/
 	}
 })();
