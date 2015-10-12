@@ -1,4 +1,4 @@
 <div>
-    <p>This is the dropdown directive.</p>
-    <p ng-bind="text"></p>
+    <input type="text" ng-model="text" ng-mouseenter="showDialog=true" ng-mouseleave="showDialog=false"/>
+    <div ng-show="showDialog" ng-mouseleave="showDialog=false">This is the dropdown directive.</div>
 </div>
