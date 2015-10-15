@@ -11,7 +11,7 @@
                 items: '=',
                 onSelect: '='
             },
-            templateUrl: 'dropdown.html'
+            templateUrl: 'jcDropdown.html'
         };
 	}
 })();
