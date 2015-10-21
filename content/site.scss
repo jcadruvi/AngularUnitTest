@@ -1,3 +1,22 @@
+$border-color: 1px solid grey;
+
 .dropdown {
   margin: 50px;
+}
+
+.dropdown-dialog {
+  padding: 1px;
+  border-bottom: $border-color;
+  border-left: $border-color;
+  border-right: $border-color;
+  line-height: 20px;
+  width: 300px;
+}
+
+.dropdown-input {
+  width: 300px;
+}
+
+.dropdown-item {
+  padding: 5px 10px;
 }
