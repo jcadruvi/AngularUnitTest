@@ -9,12 +9,22 @@ describe('jcDropdown', function (){
         $rootScope = _$rootScope_;
     }));
 
-    it('testing', function () {
+    it('should not have a dialog if there are not items.', function () {
         var $scope,
-            element;
+            $element,
+            element,
+            dialog,
+            input;
         $scope = $rootScope.$new();
         element = $compile('<jc-dropdown></jc-dropdown>')($scope);
         $scope.$digest();
-        expect(element.html()).toEqual('This is the dropdown directive.');
+        $element = $(element);
+        dialog = $element.find('.dropdown-dialog.ng-hide');
+        input = $element.find('.dropdown-input');
+        expect(dialog).toBeDefined();
+        expect(dialog.length).toEqual(1);
+        expect(input).toBeDefined();
+        expect(input.length).toEqual(1);
+
     });
 });
