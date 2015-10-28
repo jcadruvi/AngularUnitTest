@@ -59,5 +59,8 @@ describe('jcDropdown', function (){
         expect(input.length).toEqual(1);
         expect(items).toBeDefined();
         expect(items.length).toEqual(3);
+        expect($(items[0]).html()).toEqual("item 1");
+        expect($(items[1]).html()).toEqual("item 2");
+        expect($(items[2]).html()).toEqual("item 3");
     });
 });
