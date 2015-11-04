@@ -5,7 +5,7 @@ function jcDropdownController($scope) {
     $scope.showDialog = false;
     $scope.text = '';
     $scope.$watch('items', function(){
-       for(var i=0; i < $scope.items.length; i++) {
+       for(var i=0; $scope.items && i < $scope.items.length; i++) {
            if($scope.items[i].selected) {
                $scope.text = $scope.items[i].description;
            }
@@ -15,7 +15,7 @@ function jcDropdownController($scope) {
         $scope.showDialog = false;
         $scope.hasFocus = false;
         $scope.text = item.description;
-        for (var i=0; i < $scope.items.length; i++) {
+        for (var i=0; !$scope.items && i < $scope.items.length; i++) {
             $scope.items[i].selected = true;
         }
         item.selected = true;
