@@ -6,4 +6,8 @@ function indexController($scope) {
         { id: 2, description: "item 2"},
         { id: 3, description: "item 3"}
     ];
+
+    $scope.onDropdownSelect = function(item) {
+        console.log(item);
+    };
 }

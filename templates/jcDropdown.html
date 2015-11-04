@@ -1,6 +1,6 @@
 <div>
     <input class="dropdown-input" type="text" ng-model="text" ng-click="hasFocus = true" ng-blur="hasFocus = false"/>
     <div class="dropdown-dialog" ng-show="showDialog || hasFocus" ng-mouseenter="showDialog = true" ng-mouseleave="hasFocus = false; showDialog = false">
-        <div class="dropdown-item" ng-repeat="item in items" ng-bind="item.description"></div>
+        <div class="dropdown-item" ng-repeat="item in items" ng-bind="item.description" ng-click="onItemClick(item)"></div>
     </div>
 </div>

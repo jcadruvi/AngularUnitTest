@@ -3,5 +3,10 @@ angular.module('app').controller('jcDropdownController', ['$scope', jcDropdownCo
 function jcDropdownController($scope) {
     $scope.hasFocus = false;
     $scope.scopeDialog = false;
-    $scope.text = 'Test text';
+    $scope.onItemClick = function(item) {
+        
+        if($scope.onSelect) {
+            $scope.onSelect(item);
+        }
+    };
 }

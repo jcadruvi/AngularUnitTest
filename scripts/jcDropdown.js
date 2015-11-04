@@ -5,6 +5,7 @@
 
     function jcDropdown() {
         return {
+            controller: 'jcDropdownController',
             replace: true,
             restrict: 'E',
             scope: {
