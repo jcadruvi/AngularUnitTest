@@ -63,4 +63,33 @@ describe('jcDropdown', function (){
         expect($(items[1]).html()).toEqual("item 2");
         expect($(items[2]).html()).toEqual("item 3");
     });
+
+    it('should set the selected text.', function() {
+        var $scope,
+            $element,
+            element,
+            dialog,
+            input,
+            items;
+        $scope = $rootScope.$new();
+        $scope.items = [
+            { id: 1, description: "item 1"},
+            { id: 2, description: "item 2"},
+            { id: 3, description: "item 3", selected: true }
+        ];
+        element = angular.element('<jc-dropdown items="items"></jc-dropdown>')
+        $compile(element)($scope);
+        $scope.$digest();
+        $element = $(element);
+        dialog = $element.find('.dropdown-dialog');
+        input = $element.find('.dropdown-input');
+        items = $element.find('.dropdown-item');
+        expect(dialog).toBeDefined();
+        expect(dialog.length).toEqual(1);
+        expect(dialog).toBeDefined();
+        expect(input).toBeDefined();
+        expect(input.length).toEqual(1);
+        expect($(input).val()).toEqual("item 3");
+        expect(items).toBeDefined();
+    });
 });
