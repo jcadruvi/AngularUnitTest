@@ -13,20 +13,28 @@ describe('jcDropdown', function () {
         $rootScope = _$rootScope_;
     }));
 
-    it("should update text to blank if no item is selected.", function() {
-
-    });
-
-    it("should update text to a selected item.", function() {
-        var jcDropdownController, $scope = $rootScope.$new();
+    it("should select item on click.", function() {
+        var jcDropdownController, $scope = $rootScope.$new(), onSelectFired = false;
         $scope.items = [
             { id: 1, description: "item 1"},
             { id: 2, description: "item 2"},
             { id: 3, description: "item 3", selected: true }
         ];
+        $scope.showDialog = true;
+        $scope.hasFocus = true;
+        $scope.text = "";
+        $scope.onSelect = function () {
+            onSelectFired = true;
+        };
         jcDropdownController = $controller('jcDropdownController', { $scope: $scope});
-        expect(jcDropdownController).toBeDefined();
-        //expect($scope.text).toEqual("item 3");
+        $scope.onItemClick($scope.items[0]);
+        expect($scope.showDialog).toEqual(false);
+        expect($scope.hasFocus).toEqual(false);
+        expect($scope.text).toEqual("item 1");
+        expect(onSelectFired).toEqual(true);
+        expect($scope.items[0].selected).toEqual(true);
+        expect($scope.items[1].selected).toEqual(false);
+        expect($scope.items[2].selected).toEqual(false);
     });
 
 });

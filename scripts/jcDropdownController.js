@@ -15,8 +15,8 @@ function jcDropdownController($scope) {
         $scope.showDialog = false;
         $scope.hasFocus = false;
         $scope.text = item.description;
-        for (var i=0; !$scope.items && i < $scope.items.length; i++) {
-            $scope.items[i].selected = true;
+        for (var i=0; $scope.items && i < $scope.items.length; i++) {
+            $scope.items[i].selected = false;
         }
         item.selected = true;
         if($scope.onSelect) {
