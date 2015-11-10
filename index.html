@@ -9,7 +9,8 @@
 <body ng-controller="indexController">
 
     <jc-dropdown class="dropdown" items="items" on-select="onDropdownSelect"></jc-dropdown>
-    <jc-user-card></jc-user-card>
+    <jc-user-card ng-repeat="user in users" city="user.city" email="user.email" name="user.name"
+                  phone="user.phone" state="user.state"></jc-user-card>
     <script type="text/javascript" src="dist/bower/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="dist/bower/angular/angular.js"></script>
     <script type="text/javascript" src="dist/bower/angular-ui-router/release/angular-ui-router.js"></script>

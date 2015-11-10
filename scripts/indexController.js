@@ -7,6 +7,16 @@ function indexController($scope) {
         { id: 3, description: "item 3", selected: true }
     ];
 
+    $scope.users = [
+        {
+            city: "San Jose",
+            email: "jdoe@gmail.com",
+            name: "John Doe",
+            phone: "(123) 456-7890",
+            state: "CA"
+        }
+    ];
+
     $scope.onDropdownSelect = function(item) {
         console.log(item);
     };
