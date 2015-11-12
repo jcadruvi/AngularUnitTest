@@ -1,7 +1,20 @@
+$user-field-border: solid 1px black;
+$name-color: skyblue;
+
+.user-container {
+  width: 200px;
+}
+
 .user-name {
-  background-color: skyblue;
+  border: solid 1px $name-color;
+  background-color: $name-color;
   color: white;
   line-height: 40px;
   text-align: center;
-  width: 200px;
+}
+
+.user-field-container {
+  border-bottom: $user-field-border;
+  border-left: $user-field-border;
+  border-right: $user-field-border;
 }
