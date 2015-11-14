@@ -1,0 +1,16 @@
+.dropdown {
+  margin: 50px; }
+
+.dropdown-dialog {
+  padding: 1px;
+  border-bottom: 1px solid grey;
+  border-left: 1px solid grey;
+  border-right: 1px solid grey;
+  line-height: 20px;
+  width: 300px; }
+
+.dropdown-input {
+  width: 300px; }
+
+.dropdown-item {
+  padding: 5px 10px; }

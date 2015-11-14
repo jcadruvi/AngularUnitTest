@@ -8,15 +8,15 @@ var gulp = require('gulp'),
     karma = require('karma').Server;
 
 var config = {
-    jsFolder: 'scripts/**/*.js',
-    sassFolder: './content/**/*.scss',
-    templatesFolder: 'templates/**/*.html'
+    jsFolder: 'public/src/scripts/**/*.js',
+    sassFolder: 'public/src/content/**/*.scss',
+    templatesFolder: 'public/src/templates/**/*.html'
 };
 
 var doSassTask = function () {
     return gulp.src(config.sassFolder)
                .pipe(sass().on('error', sass.logError))
-               .pipe(gulp.dest('./dist/content/css'));
+               .pipe(gulp.dest('public/dist/content/css'));
 };
 
 var doScriptsTask = function () {
@@ -24,7 +24,7 @@ var doScriptsTask = function () {
                .pipe(jshint())
                .pipe(jshint.reporter(jsstylish))
                .pipe(jshint.reporter('fail'))
-               .pipe(gulp.dest('./dist/scripts'));
+               .pipe(gulp.dest('public/dist/scripts'));
 };
 
 var doTemplatesTask = function () {
@@ -33,10 +33,10 @@ var doTemplatesTask = function () {
                     filename: 'templates.js',
                     moduleName: 'app',
                     path: function (path, base) {
-                        return path.replace(base, '').replace('/templates', '');
+                        return path.replace(base, '').replace('public/src/templates', '');
                     }
                 }))
-                .pipe(gulp.dest('dist/scripts'));
+                .pipe(gulp.dest('public/dist/scripts'));
 };
 
 var doWatchTask = function () {
@@ -47,7 +47,7 @@ var doWatchTask = function () {
 
 gulp.task('bower', function() {
     return bower()
-             .pipe(gulp.dest('dist/bower'))
+             .pipe(gulp.dest('public/dist/bower'))
 });
 
 gulp.task('sass', function (){
