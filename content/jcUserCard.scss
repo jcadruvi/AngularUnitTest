@@ -13,8 +13,13 @@ $name-color: skyblue;
   text-align: center;
 }
 
+.user-field {
+  line-height: 25px;
+}
+
 .user-field-container {
   border-bottom: $user-field-border;
   border-left: $user-field-border;
   border-right: $user-field-border;
+  padding: 10px;
 }
