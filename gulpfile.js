@@ -3,6 +3,7 @@ var gulp = require('gulp'),
     jshint = require('gulp-jshint'),
     jsstylish = require('jshint-stylish'),
     ngTemplates = require('gulp-ng-template'),
+    nodemon = require('gulp-nodemon'),
     sass = require('gulp-sass'),
     livereload = require('gulp-livereload'),
     karma = require('karma').Server;
@@ -48,6 +49,15 @@ var doWatchTask = function () {
 gulp.task('bower', function() {
     return bower()
              .pipe(gulp.dest('public/dist/bower'))
+});
+
+gulp.task('nodemon', function () {
+  nodemon({ script: 'server.js',
+            ext: 'html js',
+            ignore: ['public/**']})
+    .on('restart', function () {
+      console.log('restarted!')
+    })
 });
 
 gulp.task('sass', function (){
