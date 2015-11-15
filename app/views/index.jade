@@ -1,2 +1,19 @@
-p
-    This is a test jade page....
+doctype html
+html(data-ng-app="app")
+    head
+        link(rel="stylesheet" type="text/css" href="bower/normalize.css/normalize.css")
+        link(rel="stylesheet" type="text/css" href="content/css/site.css")
+        link(rel="stylesheet" type="text/css" href="content/css/jcUserCard.css")
+    body(ng-controller="indexController")
+        jc-dropdown(class="dropdown" items="items" on-select="onDropdownSelect")
+        jc-user-card(ng-repeat="user in users" city="user.city" email="user.email" name="user.name"
+                     phone="user.phone" state="user.state")
+    script(type="text/javascript" src="bower/jquery/dist/jquery.js")
+    script(type="text/javascript" src="bower/angular/angular.js")
+    script(type="text/javascript" src="bower/angular-ui-router/release/angular-ui-router.js")
+    script(type="text/javascript" src="scripts/app.js")
+    script(type="text/javascript" src="scripts/jcDropdown.js")
+    script(type="text/javascript" src="scripts/jcDropdownController.js")
+    script(type="text/javascript" src="scripts/jcUserCard.js")
+    script(type="text/javascript" src="scripts/indexController.js")
+    script(type="text/javascript" src="scripts/templates.js")

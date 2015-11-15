@@ -19,7 +19,7 @@ app.set('port', port);
 app.set('views', path.join(__dirname, 'app/views'));
 
 app.set('view engine', 'jade');
-app.use(express.static(path.join(__dirname, 'public/dist')));
+app.use(express.static('public/dist'));
 
 fs.readdirSync('./app/controllers').forEach(function (file) {
     var route;
