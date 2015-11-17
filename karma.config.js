@@ -3,17 +3,17 @@ module.exports = function(config) {
     browsers: ['Chrome'],
     frameworks: ['jasmine', 'angular-filesort'],
     files: [
-      'bower_components/jquery/dist/jquery.js',
-      'bower_components/angular/angular.js',
-      'bower_components/angular-ui-router/release/angular-ui-router.js',
-      'bower_components/angular-mocks/angular-mocks.js',
-      'scripts/**/*.js',
-      'dist/scripts/templates.js',
+      'public/dist/bower/jquery/dist/jquery.js',
+      'public/dist/bower/angular/angular.js',
+      'public/dist/bower/angular-ui-router/release/angular-ui-router.js',
+      'public/dist/bower/angular-mocks/angular-mocks.js',
+      'public/dist/scripts/**/*.js',
+      'public/dist/scripts/templates.js',
       'tests/**/*.spec.js'
     ],
     angularFilesort: {
       whitelist: [
-        'scripts/**/*.js'
+        'public/dist/scripts/**/*.js'
       ]
     }
   });
