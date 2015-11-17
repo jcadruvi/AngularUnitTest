@@ -9,7 +9,7 @@ module.exports = function(config) {
       'public/dist/bower/angular-mocks/angular-mocks.js',
       'public/src/scripts/**/*.js',
       'public/dist/scripts/templates.js',
-      'tests/**/*.spec.js'
+      'tests/public/**/*.spec.js'
     ],
     angularFilesort: {
       whitelist: [
