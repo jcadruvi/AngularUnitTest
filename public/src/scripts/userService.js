@@ -11,6 +11,8 @@
                 $http.get('/api/users').then(function (result){
                     if (result && result.status && result.status.code) {
                         users = result.data;
+                    } else {
+                        users = [];
                     }
                 })
             },
