@@ -25,6 +25,20 @@
                 expect(userService.users).toBeDefined();
                 expect(userService.users.length).toBe(0);
             });
+
+            it('should handle error result', function (){
+                var result = {
+                    "data": null,
+                    "status": {
+                        "code": 500
+                    }
+                };
+                $httpBackend.expectGET(getUsersApiURL).respond(result);
+                userService.getUsers();
+                $httpBackend.flush();
+                expect(userService.users).toBeDefined();
+                expect(userService.users.length).toBe(0);
+            });
         });
     })
 })();
