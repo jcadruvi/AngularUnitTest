@@ -39,6 +39,43 @@
                 expect(userService.users).toBeDefined();
                 expect(userService.users.length).toBe(0);
             });
+
+            it('should handle success result', function (){
+                var result = {
+                    "data": [
+                     {
+                        city: "San Jose",
+                        email: "johndoe@gmail.com",
+                        name: "John Doe",
+                        phone: "(123) 456-7890",
+                        state: "CA"
+                    },
+                    {
+                        city: "San Fransisco",
+                        email: "janedoe@gmail.com",
+                        name: "Jane Doe",
+                        phone: "(123) 456-7891",
+                        state: "CA"
+                    },
+                    {
+                        city: "San Jose",
+                        email: "johnsmith@gmail.com",
+                        name: "John Smith",
+                        phone: "(123) 456-7892",
+                        state: "CA"
+                    }],
+                    "status": {
+                        "code": 200
+                    }
+                };
+                $httpBackend.expectGET(getUsersApiURL).respond(result);
+                userService.getUsers();
+                $httpBackend.flush();
+                expect(userService.users).toBeDefined();
+                expect(userService.users.length).toBe(3);
+            });
+
+
         });
     })
 })();
