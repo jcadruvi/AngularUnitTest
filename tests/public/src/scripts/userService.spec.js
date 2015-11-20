@@ -75,7 +75,59 @@
                 expect(userService.users.length).toBe(3);
             });
 
+            it('should handle success and then failure result', function (){
+                var successResult = {
+                    "data": [
+                     {
+                        city: "San Jose",
+                        email: "johndoe@gmail.com",
+                        name: "John Doe",
+                        phone: "(123) 456-7890",
+                        state: "CA"
+                    },
+                    {
+                        city: "San Fransisco",
+                        email: "janedoe@gmail.com",
+                        name: "Jane Doe",
+                        phone: "(123) 456-7891",
+                        state: "CA"
+                    },
+                    {
+                        city: "San Jose",
+                        email: "johnsmith@gmail.com",
+                        name: "John Smith",
+                        phone: "(123) 456-7892",
+                        state: "CA"
+                    }],
+                    "status": {
+                        "code": 200
+                    }
+                };
+                var failureResult = {
+                    "data": [
+                     {
+                        city: "San Jose",
+                        email: "johndoe@gmail.com",
+                        name: "John Doe",
+                        phone: "(123) 456-7890",
+                        state: "CA"
+                    }],
+                    "status": {
+                        "code": 500
+                    }
+                };
+                $httpBackend.expectGET(getUsersApiURL).respond(successResult);
+                userService.getUsers();
+                $httpBackend.flush();
+                expect(userService.users).toBeDefined();
+                expect(userService.users.length).toBe(3);
 
+                $httpBackend.expectGET(getUsersApiURL).respond(failureResult);
+                userService.getUsers();
+                $httpBackend.flush();
+                expect(userService.users).toBeDefined();
+                expect(userService.users.length).toBe(0);
+            });
         });
     })
 })();
