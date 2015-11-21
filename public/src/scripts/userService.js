@@ -9,7 +9,7 @@
 
         self.users = [];
 
-        self.getUsers = function () {
+        var getUsers = function () {
             $http.get('/api/users').then(function (result) {
                 if (result && result.data && result.data.status && result.data.status.code == 200) {
                     self.users = result.data.data;
@@ -17,6 +17,10 @@
                     self.users = [];
                 }
             });
+        };
+
+        self.init = function () {
+            getUsers();
         };
 
         return self;

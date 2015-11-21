@@ -16,17 +16,17 @@
             $httpBackend.verifyNoOutstandingRequest();
         });
 
-        describe('getUsers', function(){
+        describe('init', function(){
             var getUsersApiURL = '/api/users';
-            it('should handle null result', function (){
+            it('should handle getUser null result', function (){
                 $httpBackend.expectGET(getUsersApiURL).respond(null);
-                userService.getUsers();
+                userService.init();
                 $httpBackend.flush();
                 expect(userService.users).toBeDefined();
                 expect(userService.users.length).toBe(0);
             });
 
-            it('should handle error result', function (){
+            it('should handle getUser error result', function (){
                 var result = {
                     "data": null,
                     "status": {
@@ -34,13 +34,13 @@
                     }
                 };
                 $httpBackend.expectGET(getUsersApiURL).respond(result);
-                userService.getUsers();
+                userService.init();
                 $httpBackend.flush();
                 expect(userService.users).toBeDefined();
                 expect(userService.users.length).toBe(0);
             });
 
-            it('should handle success result', function (){
+            it('should handle getUser success result', function (){
                 var result = {
                     "data": [
                      {
@@ -69,13 +69,13 @@
                     }
                 };
                 $httpBackend.expectGET(getUsersApiURL).respond(result);
-                userService.getUsers();
+                userService.init();
                 $httpBackend.flush();
                 expect(userService.users).toBeDefined();
                 expect(userService.users.length).toBe(3);
             });
 
-            it('should handle success and then failure result', function (){
+            it('should handle getUser success and then failure result', function (){
                 var successResult = {
                     "data": [
                      {
@@ -117,13 +117,13 @@
                     }
                 };
                 $httpBackend.expectGET(getUsersApiURL).respond(successResult);
-                userService.getUsers();
+                userService.init();
                 $httpBackend.flush();
                 expect(userService.users).toBeDefined();
                 expect(userService.users.length).toBe(3);
 
                 $httpBackend.expectGET(getUsersApiURL).respond(failureResult);
-                userService.getUsers();
+                userService.init();
                 $httpBackend.flush();
                 expect(userService.users).toBeDefined();
                 expect(userService.users.length).toBe(0);
