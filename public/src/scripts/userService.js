@@ -16,7 +16,7 @@
                 } else {
                     self.users = [];
                 }
-            })
+            });
         };
 
         return self;
