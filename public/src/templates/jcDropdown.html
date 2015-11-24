@@ -1,6 +1,6 @@
 <div>
-    <input class="dropdown-input" type="text" ng-model="text" ng-click="hasFocus = true" ng-blur="hasFocus = false"/>
-    <div class="dropdown-dialog" ng-show="showDialog || hasFocus" ng-mouseenter="showDialog = true" ng-mouseleave="hasFocus = false; showDialog = false">
-        <div class="dropdown-item" ng-repeat="item in items" ng-bind="item.description" ng-click="onItemClick(item)"></div>
+    <input class="dropdown-input" type="text" ng-model="vm.text" ng-click="vm.hasFocus = true" ng-blur="vm.hasFocus = false"/>
+    <div class="dropdown-dialog" ng-show="vm.showDialog || vm.hasFocus" ng-mouseenter="vm.showDialog = true" ng-mouseleave="vm.hasFocus = false; vm.showDialog = false">
+        <div class="dropdown-item" ng-repeat="item in vm.items" ng-bind="item.description" ng-click="vm.onItemClick(item)"></div>
     </div>
 </div>

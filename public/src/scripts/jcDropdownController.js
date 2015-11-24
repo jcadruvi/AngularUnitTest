@@ -1,26 +1,27 @@
 angular.module('app').controller('jcDropdownController', ['$scope', jcDropdownController]);
 
 function jcDropdownController($scope) {
-    $scope.hasFocus = false;
-    $scope.showDialog = false;
-    $scope.text = '';
+    var vm = this;
+    vm.hasFocus = false;
+    vm.showDialog = false;
+    vm.text = '';
     $scope.$watch('items', function(){
-       for(var i=0; $scope.items && i < $scope.items.length; i++) {
-           if($scope.items[i].selected) {
-               $scope.text = $scope.items[i].description;
+       for(var i=0; vm.items && i < vm.items.length; i++) {
+           if(vm.items[i].selected) {
+               vm.text = vm.items[i].description;
            }
        }
     });
-    $scope.onItemClick = function(item) {
-        $scope.showDialog = false;
-        $scope.hasFocus = false;
-        $scope.text = item.description;
-        for (var i=0; $scope.items && i < $scope.items.length; i++) {
-            $scope.items[i].selected = false;
+    vm.onItemClick = function(item) {
+        vm.showDialog = false;
+        vm.hasFocus = false;
+        vm.text = item.description;
+        for (var i=0; vm.items && i < vm.items.length; i++) {
+            vm.items[i].selected = false;
         }
         item.selected = true;
-        if($scope.onSelect) {
-            $scope.onSelect(item);
+        if(vm.onSelect) {
+            vm.onSelect(item);
         }
     };
 }

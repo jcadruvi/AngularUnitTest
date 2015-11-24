@@ -6,6 +6,8 @@
     function jcDropdown() {
         return {
             controller: 'jcDropdownController',
+            controllerAs: 'vm',
+            bindToController: true,
             replace: true,
             restrict: 'E',
             scope: {
