@@ -14,27 +14,27 @@ describe('jcDropdown', function () {
     }));
 
     it("should select item on click.", function() {
-        var jcDropdownController, $scope = $rootScope.$new(), onSelectFired = false;
-        $scope.items = [
+        var vm, $scope = $rootScope.$new(), onSelectFired = false;
+        vm = $controller('jcDropdownController', { $scope: $scope});
+        vm.items = [
             { id: 1, description: "item 1"},
             { id: 2, description: "item 2"},
             { id: 3, description: "item 3", selected: true }
         ];
-        $scope.showDialog = true;
-        $scope.hasFocus = true;
-        $scope.text = "";
-        $scope.onSelect = function () {
+        vm.showDialog = true;
+        vm.hasFocus = true;
+        vm.text = "";
+        vm.onSelect = function () {
             onSelectFired = true;
         };
-        jcDropdownController = $controller('jcDropdownController', { $scope: $scope});
-        $scope.onItemClick($scope.items[0]);
-        expect($scope.showDialog).toEqual(false);
-        expect($scope.hasFocus).toEqual(false);
-        expect($scope.text).toEqual("item 1");
+        vm.onItemClick(vm.items[0]);
+        expect(vm.showDialog).toEqual(false);
+        expect(vm.hasFocus).toEqual(false);
+        expect(vm.text).toEqual("item 1");
         expect(onSelectFired).toEqual(true);
-        expect($scope.items[0].selected).toEqual(true);
-        expect($scope.items[1].selected).toEqual(false);
-        expect($scope.items[2].selected).toEqual(false);
+        expect(vm.items[0].selected).toEqual(true);
+        expect(vm.items[1].selected).toEqual(false);
+        expect(vm.items[2].selected).toEqual(false);
     });
 
 });
