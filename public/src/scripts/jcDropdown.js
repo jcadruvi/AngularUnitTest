@@ -7,13 +7,13 @@
         return {
             controller: 'jcDropdownController',
             controllerAs: 'vm',
-            bindToController: true,
-            replace: true,
-            restrict: 'E',
-            scope: {
+            bindToController: {
                 items: '=',
                 onSelect: '='
             },
+            replace: true,
+            restrict: 'E',
+            scope: {},
             templateUrl: 'jcDropdown.html'
         };
 	}
