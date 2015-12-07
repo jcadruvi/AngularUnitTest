@@ -6,7 +6,7 @@ html(data-ng-app="app")
         link(rel="stylesheet" type="text/css" href="content/css/jcUserCard.css")
     body(ng-controller="indexController as vm")
         jc-dropdown(class="dropdown" items="vm.items" on-select="vm.onDropdownSelect")
-        section.container
+        section.container.user-cards
             div.row
                 div.col-sm-12.col-md-12.col-lg-12
                     jc-user-card(ng-repeat="user in vm.service.users" city="user.city" email="user.email" name="user.name"

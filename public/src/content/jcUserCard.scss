@@ -1,5 +1,9 @@
-$user-field-border: solid 1px black;
+$user-border: solid 1px black;
 $name-color: skyblue;
+
+.user-cards {
+  margin-left: 10px;
+}
 
 .user-container {
   display: inline-block;
@@ -8,7 +12,9 @@ $name-color: skyblue;
 }
 
 .user-name {
-  border: solid 1px $name-color;
+  border-left: $user-border;
+  border-right: $user-border;
+  border-top: $user-border;
   background-color: $name-color;
   color: white;
   line-height: 40px;
@@ -20,8 +26,8 @@ $name-color: skyblue;
 }
 
 .user-field-container {
-  border-bottom: $user-field-border;
-  border-left: $user-field-border;
-  border-right: $user-field-border;
+  border-bottom: $user-border;
+  border-left: $user-border;
+  border-right: $user-border;
   padding: 10px;
 }
