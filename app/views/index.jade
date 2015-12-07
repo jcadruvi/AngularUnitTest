@@ -6,8 +6,11 @@ html(data-ng-app="app")
         link(rel="stylesheet" type="text/css" href="content/css/jcUserCard.css")
     body(ng-controller="indexController as vm")
         jc-dropdown(class="dropdown" items="vm.items" on-select="vm.onDropdownSelect")
-        jc-user-card(ng-repeat="user in vm.service.users" city="user.city" email="user.email" name="user.name"
-                     phone="user.phone" state="user.state")
+        section.container
+            div.row
+                div.col-sm-12.col-md-12.col-lg-12
+                    jc-user-card(ng-repeat="user in vm.service.users" city="user.city" email="user.email" name="user.name"
+                                 phone="user.phone" state="user.state")
     script(type="text/javascript" src="bower/jquery/dist/jquery.js")
     script(type="text/javascript" src="bower/angular/angular.js")
     script(type="text/javascript" src="bower/angular-ui-router/release/angular-ui-router.js")

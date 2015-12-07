@@ -2,6 +2,8 @@ $user-field-border: solid 1px black;
 $name-color: skyblue;
 
 .user-container {
+  display: inline-block;
+  margin: 10px;
   width: 200px;
 }
 
