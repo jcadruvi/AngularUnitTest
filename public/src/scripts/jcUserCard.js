@@ -8,11 +8,7 @@
             replace: true,
             restrict: 'E',
             scope: {
-                city: '=',
-                email: '=',
-                name: '=',
-                phone: '=',
-                state: '='
+                user: '='
             },
             templateUrl: 'jcUserCard.html'
         };

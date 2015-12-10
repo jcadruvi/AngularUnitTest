@@ -25,9 +25,8 @@ describe('jcUserCard', function() {
             state: "CA"
         };
         $scope = $rootScope.$new();
-        $scope.name = user.name;
-        $scope.email = user.email;
-        element = angular.element('<jc-user-card name="name" email="email" phone="phone" city="city" state="state"></jc-user-card>');
+        $scope.user = user;
+        element = angular.element('<jc-user-card user="user"></jc-user-card>');
         $compile(element, $scope);
         $scope.$digest();
         $element = $(element);

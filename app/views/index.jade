@@ -9,8 +9,7 @@ html(data-ng-app="app")
         section.container.user-cards
             div.row
                 div.col-sm-12.col-md-12.col-lg-12
-                    jc-user-card(ng-repeat="user in vm.service.users" city="user.city" email="user.email" name="user.name"
-                                 phone="user.phone" state="user.state")
+                    jc-user-card(ng-repeat="user in vm.service.users" user="user")
     script(type="text/javascript" src="bower/jquery/dist/jquery.js")
     script(type="text/javascript" src="bower/angular/angular.js")
     script(type="text/javascript" src="bower/angular-ui-router/release/angular-ui-router.js")
