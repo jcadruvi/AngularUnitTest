@@ -25,11 +25,16 @@ describe('jcUserCard', function() {
             state: "CA"
         };
         $scope = $rootScope.$new();
-        $scope.user = user;
+        $rootScope.user = user;
         element = angular.element('<jc-user-card user="user"></jc-user-card>');
         $compile(element, $scope);
         $scope.$digest();
         $element = $(element);
+        for (property in user) {
+            if (user.hasOwnProperty(property)) {
+                expect($scope.user[property]).toEqual(user[property]);
+            }
+        }
         //expect($element.find('.user-name strong').html()).toBe("John Doe");
     });
 });
