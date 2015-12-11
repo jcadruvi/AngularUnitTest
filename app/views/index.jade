@@ -6,13 +6,13 @@ html(data-ng-app="app")
         link(rel="stylesheet" type="text/css" href="content/css/jcUserCard.css")
     body(ng-controller="indexController as vm")
         jc-dropdown(class="dropdown" items="vm.items" on-select="vm.onDropdownSelect")
-        span(ng-click="vm.showCards=true; vm.showGrid=false") Card
+        span(ng-click="vm.indexService.showCards=true; vm.indexService.showGrid=false") Card
         span &nbsp
-        span(ng-click="vm.showGrid=true; vm.showCards=false") Grid
-        section.container.user-cards(ng-show="vm.showCards")
+        span(ng-click="vm.indexService.showGrid=true; vm.indexService.showCards=false") Grid
+        section.container.user-cards(ng-show="vm.indexService.showCards")
             div.row
                 div.col-sm-12.col-md-12.col-lg-12
-                    jc-user-card(ng-repeat="user in vm.service.users" user="user")
+                    jc-user-card(ng-repeat="user in vm.userService.users" user="user")
     script(type="text/javascript" src="bower/jquery/dist/jquery.js")
     script(type="text/javascript" src="bower/angular/angular.js")
     script(type="text/javascript" src="bower/angular-ui-router/release/angular-ui-router.js")
@@ -21,5 +21,6 @@ html(data-ng-app="app")
     script(type="text/javascript" src="scripts/jcDropdownController.js")
     script(type="text/javascript" src="scripts/jcUserCard.js")
     script(type="text/javascript" src="scripts/indexController.js")
+    script(type="text/javascript" src="scripts/indexService.js")
     script(type="text/javascript" src="scripts/userService.js")
     script(type="text/javascript" src="scripts/templates.js")

@@ -1,6 +1,6 @@
-angular.module('app').controller('indexController', ['$scope', 'userService', indexController]);
+angular.module('app').controller('indexController', ['$scope', 'indexService', 'userService', indexController]);
 
-function indexController($scope, userService) {
+function indexController($scope, indexService, userService) {
     var vm = this;
 
     vm.items = [
@@ -9,10 +9,8 @@ function indexController($scope, userService) {
         { id: 3, description: "item 3", selected: true }
     ];
 
-    vm.showCards = true;
-    vm.showGrid = false;
-
-    vm.service = userService;
+    vm.indexService = indexService;
+    vm.userService = userService;
     userService.init();
 
     vm.onDropdownSelect = function(item) {
