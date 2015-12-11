@@ -10,6 +10,16 @@
         self.showCards = true;
         self.showGrid = false;
 
+        self.onCardClick = function() {
+            self.showCards = true;
+            self.showGrid = false;
+        };
+
+        self.onGridClick = function() {
+            self.showGrid = true;
+            self.showCards = false;
+        };
+
         return self;
     }
 })();
