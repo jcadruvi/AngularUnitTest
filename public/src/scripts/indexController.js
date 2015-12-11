@@ -9,6 +9,9 @@ function indexController($scope, userService) {
         { id: 3, description: "item 3", selected: true }
     ];
 
+    vm.showCards = true;
+    vm.showGrid = false;
+
     vm.service = userService;
     userService.init();
 

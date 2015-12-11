@@ -6,7 +6,10 @@ html(data-ng-app="app")
         link(rel="stylesheet" type="text/css" href="content/css/jcUserCard.css")
     body(ng-controller="indexController as vm")
         jc-dropdown(class="dropdown" items="vm.items" on-select="vm.onDropdownSelect")
-        section.container.user-cards
+        span(ng-click="vm.showCards=true; vm.showGrid=false") Card
+        span &nbsp
+        span(ng-click="vm.showGrid=true; vm.showCards=false") Grid
+        section.container.user-cards(ng-show="vm.showCards")
             div.row
                 div.col-sm-12.col-md-12.col-lg-12
                     jc-user-card(ng-repeat="user in vm.service.users" user="user")
