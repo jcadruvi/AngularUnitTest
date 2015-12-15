@@ -10,6 +10,8 @@
             controllerAs: 'vm',
             bindToController: {
                 columns: '=',
+                enablePaging: '=',
+                page: '=',
                 rows: '='
             },
             replace: true,
