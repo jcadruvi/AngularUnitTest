@@ -18,6 +18,6 @@
             restrict: 'E',
             scope: {},
             templateUrl: 'jcGrid.html'
-        }
+        };
     }
 })();

@@ -4,8 +4,6 @@
         .controller('jcGridController', ['$scope', jcGridController]);
 
     function jcGridController($scope) {
-        var vm = this;
-
-
+        var vm = this; // jshint ignore:line
     }
 })();

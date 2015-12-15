@@ -7,6 +7,13 @@
     function indexService(){
         var self = {};
 
+        self.gridColumns = [
+            { "field": "name", "name": "Name"},
+            { "field": "email", "name": "Email"},
+            { "field": "phone", "name": "Phone"},
+            { "field": "city", "name": "City"},
+            { "field": "state", "name": "State"}
+        ];
         self.showCards = true;
         self.showGrid = false;
 
