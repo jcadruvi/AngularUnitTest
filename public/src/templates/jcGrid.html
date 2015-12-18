@@ -4,7 +4,7 @@
             <td ng-repeat="column in vm.columns" ng-bind="column.name"></td>
         </thead>
         <tbody>
-            <tr ng-repeat="row in vm.rows">
+            <tr class="jc-grid-row" ng-repeat="row in vm.rows">
                 <td ng-repeat="column in vm.columns" ng-bind="row[column.field]"></td>
             </tr>
         </tbody>
