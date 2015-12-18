@@ -6,14 +6,16 @@ html(data-ng-app="app")
         link(rel="stylesheet" type="text/css" href="content/css/jcUserCard.css")
     body(ng-controller="indexController as vm")
         jc-dropdown(class="dropdown" items="vm.items" on-select="vm.onDropdownSelect")
-        span(ng-click="vm.indexService.onCardClick()") Card
-        span &nbsp
-        span(ng-click="vm.indexService.onGridClick()") Grid
-        section.container.user-cards(ng-show="vm.indexService.showCards")
+        div.margin-left-22
+            span(ng-click="vm.indexService.onCardClick()") Card
+            span &nbsp
+            span(ng-click="vm.indexService.onGridClick()") Grid
+        section.container.margin-left-12(ng-show="vm.indexService.showCards")
             div.row
                 div.col-sm-12.col-md-12.col-lg-12
                     jc-user-card(ng-repeat="user in vm.userService.users" user="user")
-        section(ng-show="vm.indexService.showGrid")
+        section.margin-left-22(ng-show="vm.indexService.showGrid")
+            br
             jc-grid(columns="vm.indexService.gridColumns" rows="vm.userService.users")
 
     script(type="text/javascript" src="bower/jquery/dist/jquery.js")
