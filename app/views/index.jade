@@ -10,10 +10,12 @@ html(data-ng-app="app")
     body(ng-controller="indexController as vm")
         jc-dropdown(class="dropdown" items="vm.items" on-select="vm.onDropdownSelect")
         div.margin-left-22
-            span.glyphicon.glyphicon-th-large
-            span(ng-click="vm.indexService.onCardClick()") Card
-            span &nbsp
-            span(ng-click="vm.indexService.onGridClick()") Grid
+            button.btn.btn-default.btn-sm(type="button" ng-click="vm.indexService.onCardClick()")
+                span.glyphicon.glyphicon-th-large
+                span.margin-left-4 Card
+            button.btn.btn-default.btn-sm.margin-left-12(type="button" ng-click="vm.indexService.onGridClick()")
+                span.glyphicon.glyphicon-th-list
+                span.margin-left-4 Grid
         section.container.margin-left-12(ng-show="vm.indexService.showCards")
             div.row
                 div.col-sm-12.col-md-12.col-lg-12
